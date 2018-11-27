@@ -15,15 +15,7 @@ Header
 #header{
 	max-width: 1170px;
 	margin: auto;
-}
-
-#header .main-navigation{
-	padding-left: 28%;
-}
-
-#header .main-navigation > li > a {
-    font-family: 'Poppins', sans-serif;
-    
+	left: inherit !important;
 }
 
 #header-logo{
@@ -35,10 +27,74 @@ Header
 	width: 130px;
 }
 
+#header .main-navigation{
+	padding-left: 28%;
+}
 
-/*.vc_images_carousel{
+#header .main-navigation > li {
+	padding-right: 5%;
+    padding-left: 2%;
+    margin-right: 4%;
+}
+
+#header .main-navigation > li > a {
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+/* Menu effects */ 
+
+#header .main-navigation > li > a{
+	-webkit-transition: color 0.2s;
+	transition: color 0.2s;
+}
+
+#header .main-navigation:not(:hover) > li.current-menu-item  > a,
+#header .main-navigation > li > a:hover,
+#header .main-navigation > li > a:focus {
+	color: #00CE7C;
+}
+
+#header .main-navigation > li > a::before,
+#header .main-navigation > li > a::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
 	width: 100%;
-}*/
+	height: 100%;
+	border: 1.4px solid #00CE7C;
+	-webkit-transition: -webkit-transform 0.2s;
+	transition: transform 0.2s;
+}
+
+#header .main-navigation > li > a::before {
+	border-width: 0 1.4px;
+	-webkit-transform: scale3d(1, 0, 1);
+	transform: scale3d(1, 0, 1);
+	-webkit-transform-origin: 0% 50%;
+	transform-origin: 0% 50%;
+}
+
+#header .main-navigation > li > a::after {
+	border-width: 1.4px 0;
+	-webkit-transform: scale3d(0, 1, 1);
+	transform: scale3d(0, 1, 1);
+	-webkit-transform-origin: 0% 0%;
+	transform-origin: 0% 0%;
+	-webkit-transition-delay: 0.2s;
+	transition-delay: 0.2s;
+}
+
+#header .main-navigation:not(:hover) > li.current-menu-item  > a::before,
+#header .main-navigation:not(:hover) > li.current-menu-item  > a::after,
+#header .main-navigation > li:hover  > a::before,
+#header .main-navigation > li:hover  > a::after {
+	-webkit-transform: scale3d(1, 1, 1);
+	transform: scale3d(1, 1, 1);
+}
+
+
 
 /*-----------------------------------------------*
 Helpers
@@ -49,6 +105,7 @@ Helpers
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .text{
 	font-family: 'Poppins', sans-serif !important;
 }
@@ -101,7 +158,63 @@ Efects
 .hover-efect-1:hover:after{
 	bottom: 0;
 	opacity: 0.5;
+	/*margin: 0.5em 0;*/
 }
+
+/* Buttons */
+#main .vc_general.vc_btn3 {
+	text-transform: uppercase;
+    z-index: 1;
+    overflow: hidden;
+	-webkit-transition: border-color 0.4s, color 0.4s;
+	transition: border-color 0.4s, color 0.4s;
+	background-color: #8CC700; 
+	border-radius: 30px;
+	padding: 10px 30px;
+	font-family: 'Poppins', sans-serif !important;
+	font-size: 12px;
+	font-weight: 400;
+	color: #323E48;
+    border-color: #ECEFF1;
+
+}
+
+#main .vc_general.vc_btn3::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #323E48;
+	border-radius: 30px;
+	z-index: -1;
+	opacity: 0;
+	-webkit-transform: scale3d(0.7, 1, 1);
+	transform: scale3d(0.7, 1, 1);
+	-webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
+	transition: transform 0.4s, opacity 0.4s;
+	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+
+#main .vc_general.vc_btn3,
+#main .vc_general.vc_btn3::before {
+	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+#main .vc_general.vc_btn3:hover {
+	color: #fff;
+	border-color: #37474f;
+}
+
+#main .vc_general.vc_btn3:hover::before {
+	opacity: 1;
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
 
 /*-----------------------------------------------*
 Colors
