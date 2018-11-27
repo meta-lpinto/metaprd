@@ -6,11 +6,30 @@
  */
 function add_events_cat() 
 { ?>
-	<div class="form-field term-thumbnail-wrap">
+	<div class="form-field term-position-wrap">
+		<label><?php _e( 'Background Position', 'primestudio' ); ?></label>
+		<select id="tribe_events_cat_position" name="tribe_events_cat_position" class="postform">
+			<option value=""><?php _e( 'Default', 'woocommerce' ); ?></option>
+			<option value="left top">Left Top</option>
+			<option value="left center">Left Center</option>
+			<option value="left bottom">Left Bottom</option>
+			<option value="center top">Center Top</option>
+			<option value="center">Center</option>
+			<option value="center bottom">Center Bottom</option>
+			<option value="right top">Right Top</option>
+			<option value="right center">Right Center</option>
+			<option value="right bottom">Right Bottom</option>
+		</select>
+	</div>
+	<div class="form-field term-background-wrap">
 		<label><?php _e( 'Background', 'primestudio' ); ?></label>
 		<input type="text" id="tribe_events_cat_background" name="tribe_events_cat_background" class="color-field" />
+	</div>
+	<div class="form-field term-color-wrap">
 		<label><?php _e( 'Text Color', 'primestudio' ); ?></label>
 		<input type="text" id="tribe_events_cat_color" name="tribe_events_cat_color" class="color-field" />
+	</div>
+	<div class="form-field term-thumbnail-wrap">
 		<label><?php _e( 'Thumbnail', 'primestudio' ); ?></label>
 		<div id="tribe_events_cat_thumbnail" style="float: left; margin-right: 10px;">
 			<img src="<?php echo get_stylesheet_directory_uri() . '/images/placeholder.png' ?>" width="60px" height="60px" />
@@ -108,14 +127,33 @@ function edit_events_cat( $term )
 	$image = ( $thumbnail_id ) ? 
 		 wp_get_attachment_thumb_url( absint( $thumbnail_id ) ) : get_theme_file_uri( '/images/placeholder.png' ) ;
 
-	?>	
-	<tr class="form-field term-display-type-wrap">
+	?>
+	<tr class="form-field term-background-wrap">
+		<th scope="row" valign="top">
+			<label><?php _e( 'Background Position', 'primestudio' ); ?></label>
+		</th>
+		<td>
+			<select id="tribe_events_cat_position" name="tribe_events_cat_position" class="postform">
+				<option value=""><?php _e( 'Default', 'woocommerce' ); ?></option>
+				<option value="left top">Left Top</option>
+				<option value="left center">Left Center</option>
+				<option value="left bottom">Left Bottom</option>
+				<option value="center top">Center Top</option>
+				<option value="center">Center</option>
+				<option value="center bottom">Center Bottom</option>
+				<option value="right top">Right Top</option>
+				<option value="right center">Right Center</option>
+				<option value="right bottom">Right Bottom</option>
+			</select>
+		</td>
+	</tr>	
+	<tr class="form-field term-background-wrap">
 		<th scope="row" valign="top"><label><?php _e( 'Background', 'primestudio' ); ?></label></th>
 		<td>
 			<input type="text" class="color-field" id="tribe_events_cat_background" name="tribe_events_cat_background" value="<?php echo $background; ?>" />
 		</td>
 	</tr>
-	<tr class="form-field term-display-type-wrap">
+	<tr class="form-field term-color-wrap">
 		<th scope="row" valign="top"><label><?php _e( 'Text Color', 'primestudio' ); ?></label></th>
 		<td>
 			<input type="text" id="tribe_events_cat_color" name="tribe_events_cat_color" class="color-field" value="<?php echo $color; ?>"/>
@@ -139,8 +177,6 @@ function edit_events_cat( $term )
 
 				// Uploading files
 				var file_frame;
-
-				jQuery('.color-field').wpColorPicker();
 
 				jQuery( document ).on( 'click', '.upload_image_button', function( event ) {
 
@@ -198,6 +234,7 @@ function edit_events_cat( $term )
 function store_events_cat( $term_id, $tt_id = '' )
 {
 	add_term_meta( $term_id, 'background', 	 esc_attr( $_POST['tribe_events_cat_background'] ) );
+	add_term_meta( $term_id, 'position', 	 esc_attr( $_POST['tribe_events_cat_position'] ) );
 	add_term_meta( $term_id, 'color', 		 esc_attr( $_POST['tribe_events_cat_color'] ) );
 	add_term_meta( $term_id, 'thumbnail_id', esc_attr( $_POST['tribe_events_cat_thumbnail_id'] ) );
 }
@@ -212,6 +249,7 @@ function store_events_cat( $term_id, $tt_id = '' )
 function update_events_cat( $term_id, $tt_id = '' )
 {
 	update_term_meta( $term_id, 'background', 	esc_attr( $_POST['tribe_events_cat_background'] ) );
+	update_term_meta( $term_id, 'position', 	esc_attr( $_POST['tribe_events_cat_position'] ) );
 	update_term_meta( $term_id, 'color', 		esc_attr( $_POST['tribe_events_cat_color'] ) );
 	update_term_meta( $term_id, 'thumbnail_id', esc_attr( $_POST['tribe_events_cat_thumbnail_id'] ) );
 }

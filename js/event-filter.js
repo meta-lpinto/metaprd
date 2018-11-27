@@ -4,7 +4,7 @@
 		 {
            var $grid = $('#event-container').isotope({
                  itemSelector : '.event-item',
-                 layoutMode: 	'fitRows'
+                 layoutMode: 'vertical'
           		}),
            		$container = $('#event-container');
 

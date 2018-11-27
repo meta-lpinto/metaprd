@@ -30,23 +30,25 @@ if( $show_count )
 	{
 		$cat_thumbnail_id 	= get_term_meta( $cat->term_id, 'thumbnail_id', true );
 		$cat_background		= get_term_meta( $cat->term_id, 'background', true );
+		$cat_position		= get_term_meta( $cat->term_id, 'position', true );
 		$cat_color			= get_term_meta( $cat->term_id, 'color', true );
 
 			$output .= '<div class="event-cat col-4 col-md hover-efect-1" style="background-color: ' . ( ( $cat_background ) ? $cat_background : '#B5DBD2' ) . '">';
 			if( $cat_thumbnail_id ) 
-				$output .= '<div class="event-filter-container-bg" style="background-image: url(\'' . wp_get_attachment_thumb_url( $cat_thumbnail_id ) . '\'); background-color: ' . ( ( $cat_background ) ? $cat_background : '#B5DBD2' ) . '"></div>';
+				$output .= '<div class="event-filter-container-bg" style="background-image: url(\'' . wp_get_attachment_url( $cat_thumbnail_id, 'full' ) . '\'); background-color: ' . ( ( $cat_background ) ? $cat_background : '#B5DBD2' ) . '; background-position: ' . ( ( $cat_position ) ? $cat_position : 'center' ) . '"></div>';
 				$output .= '<div class="event-cat-inner row clearfix">';
 					$output .= '<a href="#event-cat-list" class="" data-filter=".' . $cat->slug . '" data-count="' . $cat->count . '">';
-						$output .= '<p class="cat-order">#'. ($nro+1).'</p>';
-						$output .= '<div class="cat-title" style="color: ' . ( ( $cat_color ) ? $cat_color : '#FFF' ) . '">' . strtoupper( $cat->name ) . '</div>';
+						$output .= '<p class="cat-order">#'. ( $nro+1 ).'</p>';
+						$output .= '<div class="cat-title" style="color: ' . ( ( $cat_color ) ? $cat_color : '#FFF' ) . '">' . strtoupper( $cat->description ) . '</div>';
 					$output .= '</a>';
+					$output .= '<img class="arrow" src="'. get_stylesheet_directory_uri() . '/images/down-arrow.svg" />';
 				$output .= '</div><!--end .event-cat-inner -->';
 			$output .= '</div><!--end .event-cat -->';
 	}
 		$output .= '</div><!--end .event-filter-container-inner -->';
 	
 	$output .= '</div><!--end .event-filter-container -->';
-	$output .= '<div id="event-container" class="event-container col-12">';
+	$output .= '<div id="event-container" class="event-container col-12 col-md-10 col-lg-8 mx-auto">';
 		$output .= '<div class="clearfix event-container-inner row">';
 
 	if ( $events ) : 
@@ -60,14 +62,12 @@ if( $show_count )
 					return $c;
 				});
 
-			$output .= '<div class="event-item wpb_animate_when_almost_visible wpb_start_animation wpb_top-to-bottom col-4 col-md-'. ( 12 / $no_of_columns ) .' '. $slug . '">'; 
+			$output .= '<div class="event-item wpb_animate_when_almost_visible wpb_start_animation wpb_top-to-bottom col-12 '. $slug . '">'; 
 
-			$output .= '<a href="#" class="event-item-inner">';
-				$output .= '<div class="event-image-holder">';
-				 	$output .= '<img src="'.get_stylesheet_directory_uri().'/images/event-default.jpg" />'; 
-					$output .= '<p class="event-date">'.tribe_get_start_date( $event->ID, false, 'M' ).'<span>'.tribe_get_start_date( $event->ID, false, 'd' ).'</span></p>';
-				$output .= '</div><!--end .event-image-holder -->';
-				$output .= '<p class="event-title text-center truncate">'.$event->post_title.'</p>'; 
+			$output .= '<a href="' . get_the_permalink( $event->ID ) . '" class="event-item-inner row">';
+				$output .= '<div class="col-2 event-date"><span class="day">'.tribe_get_start_date( $event->ID, false, 'd' ).'</span><span class="month">'.tribe_get_start_date( $event->ID, false, 'M' ).'<span class="year">'.tribe_get_start_date( $event->ID, false, 'Y' ).'</span></span></div>';
+				$output .= '<div class="col-8 event-title truncate">'.$event->post_title.'<span>'. $slug . '</span></div>';
+				$output .= '<div class="col-2 event-link">' . esc_html__( 'IR AL EVENTO','primestudio' ) . '</div>';
 			$output .= '</a><!--end .event-item-inner -->'; 
 			$output .= '</div><!--end .event-item -->';
 

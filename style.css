@@ -19,10 +19,7 @@ Header
 
 #header .main-navigation > li > a {
     font-family: 'Poppins', sans-serif;
-}
-
-#header .main-navigation > li > a:hover{
-	color: #00CE7C;
+    padding-left: 28%;
 }
 
 #header-logo{
@@ -47,6 +44,9 @@ Helpers
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.text{
+	font-family: 'Poppins', sans-serif !important;
 }
 
 /*-----------------------------------------------*
@@ -136,6 +136,17 @@ Responsive
 
 
 @media( max-width: 991px ) {
+	#header-logo img {
+	    width: 115px;
+	    margin: 20px auto;
 
+	}
 
+}
+
+@media( max-width: 1170px ) {
+
+	#header .main-navigation > li > a {
+	    padding-left: 20%;
+	}
 }

@@ -21,7 +21,9 @@
   z-index: 1;
   background-blend-mode: multiply;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.6;
   transition: all 0.3s ease-in-out;
 }
 
@@ -31,103 +33,153 @@
 }
 
 #event-filter-container .event-cat .event-cat-inner{
-  padding: 40% 20%;
+  padding: 20%;
   height: 100%;
 }
 
 #event-filter-container .event-cat a{
+  font-family: 'Poppins', sans-serif;
   text-decoration: none;
+  padding: 70% 0;
+  position: relative;
   display: block;
+  height: 100%;
 }
 
 #event-filter-container .event-cat .cat-order{
-  opacity: 0.6;
+  opacity: 0.7;
   font-size: 50px;
-  font-family: 'Roboto';
-  font-weight: 500;
+  font-weight: 200;
   font-style: normal;
   text-align: left;
   line-height: 36px;
   letter-spacing: 0px;
+  position: absolute;
+  top: 0;
+  right: 0;
   color: #FFF;
 }
 
 #event-filter-container .event-cat .cat-title{
-  font-size: 48px;
-  font-family: 'Roboto';
+  font-size: 45px;
   font-weight: 700;
   font-style: normal;
   text-align: left;
-  line-height: 71.1px;
+  line-height: 46px;
   letter-spacing: 0px;
   text-transform: uppercase;
 }
 
+#event-filter-container .event-cat .arrow {
+    position: absolute;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    width: 30px;
+    height: auto;
+    bottom: 10px;
+    right: 40px;
+}
+
+#event-filter-container .event-cat-inner.selected .arrow {
+  opacity: 0.7;
+}
+
 #event-container .event-item{
-  padding: 0;
-}
-
-#event-container .event-item-inner {
-    display: block;
-    position: relative;
-    padding-bottom: 39px;
-}
-
-#event-container .event-image-holder {
-    overflow: hidden;
-    position: relative;
-    height: 230px;
-}
-
-#event-container .event-item .event-image-holder img{
-  min-width: 100%;
-  min-height: 100%;
-  position: absolute;
-  display: block;
-  transition: all 0.3s ease-in-out;
-}
-
-#event-container .event-item:hover .event-image-holder img{
-  transform: rotate(15deg) scale(1.6);
-}
-
-#event-container .event-item .event-title {
-  text-align: center;
-  color: #00CE7C;
+  font-family: 'Poppins', sans-serif;
   text-decoration: none;
+  color: #000;
+  border-bottom: 1px solid #CCC;
+  padding: 5px 0;
+}
+
+/*#event-container .event-item:after{
+  content: "";
   position: absolute;
   display: block;
   width: 100%;
-  transition: all 0.3s ease-in-out;
-  bottom: 0;
-  text-transform: uppercase;
+  height: 100%;
+  background: #323E48;
+  transition: all 0.5s ease-in-out;
+}*/
+
+#event-container .event-item-inner{
+  /*display: block;*/
 }
 
-#event-container .event-item:hover{ background: #D1D3D4; }
-#event-container .event-item:hover .event-title{ color: #939598 !important; }
+#event-container .event-item-inner > div{
+  position: relative;
+}
 
-#event-container .event-image-holder .event-date {
-  line-height: 18px;
+#event-container .event-item:hover .event-item-inner > div:not(:last-child):before{
+  width: 100%;
+  mix-blend-mode: difference;
+  background: #323E48;
+  opacity: 0.5
+}
+
+#event-container .event-item-inner > div:not(:last-child):before{
+  content: "";
   position: absolute;
-  bottom: 0;
+  transition: all ease-in-out 0.3s;
+  display: block;
   right: 0;
-  margin: 20px;
-  text-align: center;
-  font-weight: 200;
-  color: #939598;
-  text-transform: uppercase;
+  top: 10%;
+  width: 2px;
+  height: 80%;
+  background: #B5DBD2;
 }
 
-#event-container .event-image-holder .event-date span {
+#event-container .event-item a:hover{
+  text-decoration: none
+}
+
+#event-container .event-date{
+  color: #000;
+}
+
+#event-container .event-date .day{
+    font-size: 38px;
+    font-weight: 500;
+    padding-right: 7px;
+}
+
+#event-container .event-date .month {
+    display: inline-block;
+    line-height: 18px;
+    text-align: center;
+    font-size: 18px;
+    text-transform: lowercase;
+}
+
+#event-container .event-date .year {
     display: block;
-    line-height: 25px;
-    font-size: 25px;
 }
 
+#event-container .event-title{
+  color: #444;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 22px;
+  padding-top: 12px;
+}
+
+#event-container .event-title span{
+  text-transform: uppercase;
+  display: block;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+#event-container .event-link {
+    color: #444;
+    font-size: 16px;
+    text-decoration: underline;
+    padding-top: 20px;
+}
 
 @media  (max-width: 767px) {
-  #event-filter-container .event-cat .event-cat-inner{
-    padding: 20% !important;
+  #event-filter-container .event-cat .event-cat-inner a{
+    padding: 0 !important;
   }
   #event-filter-container .event-cat .cat-title{
     font-size: 20px

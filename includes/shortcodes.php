@@ -19,7 +19,7 @@ function filter_tribe_events_handle( $atts, $content = null )
   $events       = tribe_get_events( array( 'posts_per_page' => $max_events ) );
   $categories   = get_categories( [ 
     'taxonomy'  => 'tribe_events_cat', 
-    'orderby'   => 'date',
+    'orderby'   => 'id',
     'order'     => 'ASC' 
   ]);
 
@@ -44,11 +44,10 @@ function filter_tribe_events_handle( $atts, $content = null )
     get_theme_file_uri( 'css/event-filter-style.css' ), 
     array(), '' );
 
-  set_query_var( 'events',        $events );
-  set_query_var( 'categories',    $categories );
-  set_query_var( 'show_count',    $show_count );
-  set_query_var( 'total_count',   $total_count );
-  set_query_var( 'no_of_columns',  $no_of_columns );
+  set_query_var( 'events',         $events );
+  set_query_var( 'categories',     $categories );
+  set_query_var( 'show_count',     $show_count );
+  set_query_var( 'total_count',    $total_count );
 
   get_template_part( 'template-parts/filter', 'tribe_events' );
 }
