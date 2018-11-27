@@ -8,6 +8,32 @@ Template: primestudio
 Version: 1.0.1
 */
 
+/*-----------------------------------------------*
+Header
+/*-----------------------------------------------*/
+
+#header{
+	max-width: 1170px;
+	margin: auto;
+}
+
+#header .main-navigation > li > a {
+    font-family: 'Poppins', sans-serif;
+}
+
+#header .main-navigation > li > a:hover{
+	color: #00CE7C;
+}
+
+#header-logo{
+	margin: 0;
+	padding: 0;
+}
+
+#header-logo img{
+	width: 130px;
+}
+
 
 /*.vc_images_carousel{
 	width: 100%;
