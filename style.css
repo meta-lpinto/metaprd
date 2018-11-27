@@ -17,9 +17,13 @@ Header
 	margin: auto;
 }
 
+#header .main-navigation{
+	padding-left: 28%;
+}
+
 #header .main-navigation > li > a {
     font-family: 'Poppins', sans-serif;
-    padding-left: 28%;
+    
 }
 
 #header-logo{
@@ -146,7 +150,7 @@ Responsive
 
 @media( max-width: 1170px ) {
 
-	#header .main-navigation > li > a {
+	#header .main-navigation {
 	    padding-left: 20%;
 	}
 }
