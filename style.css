@@ -1,0 +1,115 @@
+/*
+Theme Name: Child theme of primestudio
+Theme URI: 
+Description: Child theme of primestudio theme for the primestudio theme
+Author: <a href="http://0effortthemes.com/">0effortthemes Team</a>
+Author URI: 
+Template: primestudio
+Version: 1.0.1
+*/
+
+
+/*.vc_images_carousel{
+	width: 100%;
+}*/
+
+/*-----------------------------------------------*
+Helpers
+/*-----------------------------------------------*/
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*-----------------------------------------------*
+Efects
+/*-----------------------------------------------*/
+.hover-efect-1{
+	position: relative;
+	overflow: hidden;
+}
+
+.hover-efect-1 > div{
+	z-index: 10 !important;
+	display: block;
+	position: relative;
+}
+
+.hover-efect-1:before{
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 50%;
+	top: -50%;
+	left: 0;
+	opacity: 0;
+	z-index: 2;
+	background: #00CE7C;
+	transition: all 0.3s ease-in-out;
+}
+
+.hover-efect-1:after{
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 50%;
+	bottom: -50%;
+	left: 0;
+	opacity: 0;
+	z-index: 2;
+	background: #00CE7C;
+	transition: all 0.3s ease-in-out;
+}
+
+.hover-efect-1:hover:before{
+	top: 0;
+	opacity: 0.5;
+}
+
+.hover-efect-1:hover:after{
+	bottom: 0;
+	opacity: 0.5;
+}
+
+/*-----------------------------------------------*
+Colors
+/*-----------------------------------------------*/
+
+/* Main Colors */
+.bg-green{ 		background-color: #00CE7C !important; }
+.bg-green-a{ 	background-color: #D7DF23 !important; }
+.bg-green-b{ 	background-color: #00B451 !important; }
+.bg-green-c{ 	background-color: #70D44B !important; }
+
+
+/* Complementary Colors */
+.bg-grey-dark{ 	background-color: #323E48 !important; }
+
+
+
+Colores Auxiliares
+.bg-blue-light{ background-color: #B5DBD2 !important; }
+.bg-blue{ 		background-color: #00A0AF !important; }
+.bg-grey-light{ background-color: #D1D3D4 !important; }
+.bg-grey{ 		background-color: #939598 !important; }
+
+
+/* Others Colors */
+.bg-turquoise{ 	background-color: #3cbee9 !important; }
+
+/*-----------------------------------------------*
+Responsive
+/*-----------------------------------------------*/
+
+@media( max-width: 768px ) {
+
+	
+}
+
+
+@media( max-width: 991px ) {
+
+
+}
