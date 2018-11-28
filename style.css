@@ -70,21 +70,35 @@ Header
     
 }
 
+#masthead{
+	position: relative;
+}
+
+#masthead .site-branding {
+    border: 0 !important;
+  position: absolute;
+  top: 15px
+}
+
+#masthead .site-branding img{
+	width: 100px;
+}
+
 /* Menu effects */ 
 
-#header .main-navigation > li > a{
+#masthead .main-navigation > li > a{
 	-webkit-transition: color 0.2s;
 	transition: color 0.2s;
 }
 
-#header .main-navigation:not(:hover) > li.current-menu-item  > a,
-#header .main-navigation > li > a:hover,
-#header .main-navigation > li > a:focus {
+#masthead .main-navigation:not(:hover) > li.current-menu-item  > a,
+#masthead .main-navigation > li > a:hover,
+#masthead .main-navigation > li > a:focus {
 	color: #00CE7C;
 }
 
-#header .main-navigation > li > a::before,
-#header .main-navigation > li > a::after {
+#masthead .main-navigation > li > a::before,
+#masthead .main-navigation > li > a::after {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -96,7 +110,7 @@ Header
 	transition: transform 0.2s;
 }
 
-#header .main-navigation > li > a::before {
+#masthead .main-navigation > li > a::before {
 	border-width: 0 1.4px;
 	-webkit-transform: scale3d(1, 0, 1);
 	transform: scale3d(1, 0, 1);
@@ -104,7 +118,7 @@ Header
 	transform-origin: 0% 50%;
 }
 
-#header .main-navigation > li > a::after {
+#masthead .main-navigation > li > a::after {
 	border-width: 1.4px 0;
 	-webkit-transform: scale3d(0, 1, 1);
 	transform: scale3d(0, 1, 1);
@@ -114,10 +128,10 @@ Header
 	transition-delay: 0.2s;
 }
 
-#header .main-navigation:not(:hover) > li.current-menu-item  > a::before,
-#header .main-navigation:not(:hover) > li.current-menu-item  > a::after,
-#header .main-navigation > li:hover  > a::before,
-#header .main-navigation > li:hover  > a::after {
+#masthead .main-navigation:not(:hover) > li.current-menu-item  > a::before,
+#masthead .main-navigation:not(:hover) > li.current-menu-item  > a::after,
+#masthead .main-navigation > li:hover  > a::before,
+#masthead .main-navigation > li:hover  > a::after {
 	-webkit-transform: scale3d(1, 1, 1);
 	transform: scale3d(1, 1, 1);
 }
