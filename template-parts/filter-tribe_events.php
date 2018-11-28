@@ -20,7 +20,7 @@ if( $show_count )
 				$output .= '<div class="event-cat-inner row clearfix">';
 					$output .= '<a href="#event-cat-list" class="" data-filter="*" data-count="' . $total_count . '">';
 						$output .= '<p class="cat-order">#0</p>';
-						$output .= '<div class="cat-title" style="color: #FFF">' . esc_html__( 'TODOS','primestudio' ) . '</div>';
+						$output .= '<div class="cat-title" style="color: #FFF">' . esc_html__( 'TO','primestudio' ) . '<br/>' . esc_html__( 'DOS','primestudio' ) . '</div>';
 					$output .= '</a>';
 				$output .= '</div><!--end .event-cat-inner -->';
 			$output .= '</div><!--end .event-cat -->';
