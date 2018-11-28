@@ -56,17 +56,18 @@ if( $show_count )
 		foreach( $events as $event ) :
 
 			$terms = get_the_terms( $event->ID, 'tribe_events_cat' );
-			$slug =  ( !$terms ) ? '' : array_reduce( $terms , function( $c, $v )
+			$event_cat =  ( !$terms ) ?  [ 'name' => [], 'slug' => [] ]  : array_reduce( $terms , function( $c, $v )
 				{
-					$c .= ' '. $v->slug;
+					$c['name'][] = $v->name;
+					$c['slug'][] = $v->slug;
 					return $c;
 				});
 
-			$output .= '<div class="event-item wpb_animate_when_almost_visible wpb_start_animation wpb_top-to-bottom col-12 '. $slug . '">'; 
+			$output .= '<div class="event-item wpb_animate_when_almost_visible wpb_start_animation wpb_top-to-bottom col-12 '. implode( ' ', $event_cat['slug'] )  . '">'; 
 
 			$output .= '<a href="' . get_the_permalink( $event->ID ) . '" class="event-item-inner row">';
 				$output .= '<div class="col-2 event-date"><span class="day">'.tribe_get_start_date( $event->ID, false, 'd' ).'</span><span class="month">'.tribe_get_start_date( $event->ID, false, 'M' ).'<span class="year">'.tribe_get_start_date( $event->ID, false, 'Y' ).'</span></span></div>';
-				$output .= '<div class="col-8 event-title truncate">'.$event->post_title.'<span>'. $slug . '</span></div>';
+				$output .= '<div class="col-8 event-title truncate">'.$event->post_title.'<span>'. implode( ' ', $event_cat['name'] )  . '</span></div>';
 				$output .= '<div class="col-2 event-link">' . esc_html__( 'IR AL EVENTO','primestudio' ) . '</div>';
 			$output .= '</a><!--end .event-item-inner -->'; 
 			$output .= '</div><!--end .event-item -->';

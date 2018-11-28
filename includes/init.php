@@ -11,11 +11,11 @@ function enqueue_styles_scripts()
     $parent_base_dir = 'primestudio';
 
     //parent style
-    /*wp_enqueue_style( $parent_style,
+    wp_enqueue_style( $parent_style,
         get_template_directory_uri() . '/style.css',
         [],
         wp_get_theme( $parent_base_dir ) ? wp_get_theme( $parent_base_dir )->get('Version') : ''
-    );*/
+    );
     
     //child theme style
     wp_enqueue_style( 'child-style',

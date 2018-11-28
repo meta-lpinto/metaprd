@@ -12,7 +12,7 @@
 * Also if the parent theme supports pluggable functions you can use function_exists( 'put_the_function_name_here' ) checks.
 */
 
-//require_once get_template_directory() . 'inc/extensions/CMB2/init.php';
+
 require "includes/init.php";
 require "includes/shortcodes.php";
 require "includes/custom_fields.php";

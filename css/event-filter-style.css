@@ -1,3 +1,7 @@
+/*-----------------------------------------------*
+Tribe Events
+/*-----------------------------------------------*/
+
 #event-filter-container{
   min-height: 200px;
   margin-bottom: 30px;
@@ -179,6 +183,96 @@
     padding-top: 20px;
 }
 
+
+/*-----------------------------------------------*
+Meta Events
+/*-----------------------------------------------*/
+
+
+#meta-events-container .meta-event{
+  font-family: 'Poppins', sans-serif;
+}
+
+#meta-events-container .meta-event-inner {
+    position: relative;
+    padding: 240px 0 0 0;
+    display: block;
+    overflow: hidden;
+}
+
+#meta-events-container .event-image-holder {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 240px;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all 0.3s ease-in-out;
+}
+
+#meta-events-container .meta-event:hover .event-image-holder{
+  transform: rotate(15deg) scale(1.9);
+  background-color: #323E48;
+  background-blend-mode: multiply;
+}
+
+#meta-events-container .event-title {
+  padding: 10px;
+  position: relative;
+  font-size: 16px;
+  color: #323E48;
+  text-decoration: none;
+  transition: all ease-in-out 0.3s;
+  line-height: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+#meta-events-container .event-title span{
+  text-transform: uppercase;
+  display: block;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+#meta-events-container .meta-event:hover .event-title {
+  color: #D1D3D4;
+}
+
+#meta-events-container .event-title:before{
+  content: "";
+  position: absolute;
+  transition: all ease-in-out 0.3s;
+  display: block;
+  left: 0;
+  top: 20%;
+  width: 3px;
+  height: 70%;
+  background: #B5DBD2;
+}
+
+#meta-events-container .view-more {
+    position: absolute;
+    top: 35%;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    transition: all ease-in-out 0.3s;
+    opacity: 0;
+    color: #D1D3D4;
+}
+
+#meta-events-container .meta-event:hover .view-more {
+  font-size: 20px;
+  opacity: 1;
+}
+/*-----------------------------------------------*
+Responsive
+/*-----------------------------------------------*/
 @media  (max-width: 767px) {
   #event-filter-container .event-cat .event-cat-inner a{
     padding: 0 !important;
