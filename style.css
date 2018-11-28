@@ -270,6 +270,20 @@ Colores Auxiliares
 /* Others Colors */
 .bg-turquoise{ 	background-color: #3cbee9 !important; }
 
+
+
+/*-----------------------------------------------*
+Footer
+/*-----------------------------------------------*/
+
+#footer{
+	background-position: 65% bottom !important;
+}
+
+#footer{
+	width: 150px;
+}
+
 /*-----------------------------------------------*
 Responsive
 /*-----------------------------------------------*/
