@@ -59,11 +59,11 @@ Header
 	padding-left: 28%;
 }
 
-#header .main-navigation > li {
+/*#header .main-navigation > li {
 	padding-right: 5%;
     padding-left: 1%;
     margin-right: 0%;
-}
+}*/
 
 #header .main-navigation > li > a {
     font-family: 'Poppins', sans-serif;
@@ -200,7 +200,7 @@ Efects
 	border-radius: 30px;
 	padding: 10px 30px;
 	font-family: 'Poppins', sans-serif !important;
-	font-size: 12px;
+	font-size: 16px;
 	font-weight: 400;
 	color: #323E48;
     border-color: #ECEFF1;
@@ -280,8 +280,22 @@ Footer
 	background-position: 65% bottom !important;
 }
 
+#footer .social-icons a {
+	display: inline-block
+}
+
+#footer .social-icons a img{
+	width: 34px;
+	padding: 0;
+	margin: 10px 5px
+}
+
 #footer-logo img{
 	width: 150px;
+}
+
+.footer-copyright {
+    padding: 10px 0 !important;
 }
 
 /*-----------------------------------------------*

@@ -18,7 +18,7 @@ function enqueue_styles_scripts()
     );
     
     //child theme style
-    wp_enqueue_style( 'child-style',
+    wp_enqueue_style( 'primestudio-style',
         get_stylesheet_directory_uri() . '/style.css',
         [ $parent_style ],
         wp_get_theme()->get('Version')
