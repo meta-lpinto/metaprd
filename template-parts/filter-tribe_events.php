@@ -1,6 +1,6 @@
 <?php
 
-$output = '<div class="row">';
+$output = '<div id="widget-tribe-events" class="row">';
 
 if( $show_count )
 {
@@ -78,7 +78,7 @@ if( $show_count )
 	wp_reset_postdata();
 		$output .= '</div><!-- end .event-container-inner-->';
 	$output .= '</div><!-- end #event-container-->';
-$output .= '</div>';
+$output .= '</div><!-- end #widget-tribe-events-->';
 
 echo $output;
 ?>

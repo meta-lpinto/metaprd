@@ -4,14 +4,14 @@ function filter_tribe_events_handle( $atts, $content = null )
 {
   extract( shortcode_atts( array(
    'max_events'           =>  -1,
-   'show_count'           =>  0,
    'exclude_cat'          =>  ''
- ), $atts, 'filter' ) );
+ ), $atts ) );
 
-  $events       = tribe_get_events( [ 
+  $events       = tribe_get_events([ 
     'posts_per_page' => $max_events 
   ]);
-  $categories   = get_categories( [ 
+
+  $categories   = get_categories([ 
     'taxonomy'  => 'tribe_events_cat', 
     'orderby'   => 'id',
     'order'     => 'ASC' 
@@ -50,7 +50,13 @@ function filter_tribe_events_handle( $atts, $content = null )
 
 function filter_meta_events_handle( $atts, $content = null )
 {
-  extract( shortcode_atts( array( 'columns'   =>  4 ), $atts, 'filter' ) );
+  extract( shortcode_atts( array( 
+    'columns'     => 4,
+    'max_events'  => -1,
+    'show_filter' => 0,
+    'orderby'     => 'id',
+    'order'       => 'DESC'
+  ), $atts ) );
 
   if (! wp_script_is( 'isotope', 'enqueued' ) )
     wp_enqueue_script( 'isotope', 
@@ -74,11 +80,23 @@ function filter_meta_events_handle( $atts, $content = null )
   
   $event = new WP_Query( [ 
     'post_type'       => 'meta_event', 
-    'orderby'         => 'id', 
-    'order'           => 'DESC',
-    'posts_per_page'  => -1
-  ]);  
-  //echo "<pre>"; var_dump( $events ); die();
+    'orderby'         => $orderby, 
+    'order'           => $order,
+    'posts_per_page'  => $max_events
+  ]);
+
+  if( $show_filter )
+  {
+    $categories   = get_categories( [ 
+      'taxonomy'  => 'meta_category', 
+      'orderby'   => 'id',
+      'order'     => 'ASC' 
+    ]);
+
+    set_query_var( 'show_filter', 1 );
+    set_query_var( 'categories', $categories );
+  }
+  
   
   set_query_var( 'event', $event );
   set_query_var( 'columns', $columns );

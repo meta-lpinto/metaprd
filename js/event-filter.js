@@ -26,4 +26,31 @@
           }); 
 		}
 
+    if( $('.meta-event-cat').length )
+   {
+         var $grid = $('#meta-events-container').isotope({
+               itemSelector : '.meta-event',
+               layoutMode: 'fitRows',
+               percentPosition: true,
+               fitRows: { gutter: 0 }
+            }),
+            $container = $('#meta-events-container');
+
+         $('.meta-event-cat a').on( 'click',  function(e) {
+          e.preventDefault();
+          var filterValue = $(this).data('filter');
+          console.log(filterValue);
+
+          $grid.isotope({ filter: filterValue });
+          $('.meta-event-cat a').parent().removeClass("selected");
+          $(this).parent().addClass("selected");
+
+         });
+
+        $('.meta-event-cat a').eq(0).trigger('click');
+        $container.imagesLoaded().progress( function() {
+          $grid.isotope('layout');
+        }); 
+  }
+
 })( jQuery );

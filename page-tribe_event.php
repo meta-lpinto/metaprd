@@ -1,19 +1,27 @@
 <?php
+/*
+	Template Name: Eventos
+	*/
 /**
- * The template for displaying all single posts.
+ * The template for displaying all pages.
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site may use a
+ * different template.
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package primestudio
  */
 
-	get_header('meta_events'); ?>
+get_header(); ?>
 	<div id="primary" class="content-area col-12">
 		<main id="main" class="site-main">
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php get_template_part( 'template-parts/content', 'meta_events' ); ?>
+			<?php get_template_part( 'template-parts/content', 'tribe_events' ); ?>
 			<div class="custome-nav"><?php 
 
 				previous_post_link('%link', 'Older', TRUE); 

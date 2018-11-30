@@ -16,3 +16,22 @@
 require "includes/init.php";
 require "includes/shortcodes.php";
 require "includes/custom_fields.php";
+
+function primestudio_child_footer_block()
+{
+	$footer_post_id = primestudio_get_option('footer-widget-options-vc');
+	require_once trailingslashit(get_template_directory()). '/inc/footer-styles/predefine-footer.php';
+}//end of function
+
+function primestudio_child_header_block()
+{
+	$header_post_id = primestudio_get_option('header-layout-options-vc');
+	require_once trailingslashit(get_template_directory()). '/inc/header-styles/predefine-header.php';
+}//end of function
+
+
+remove_action('primestudio_footer_block_action', 'primestudio_footer_block');
+remove_action('primestudio_header_block_action', 'primestudio_header_block');
+
+add_action('primestudio_footer_block_action','primestudio_child_footer_block');
+add_action('primestudio_child_header_block_action','primestudio_child_header_block');

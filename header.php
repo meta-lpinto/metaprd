@@ -63,7 +63,7 @@
     	?>
 					<header id="masthead" class="site-header <?php echo esc_attr(primestudio_menu_class()); ?> <?php printf('%s',$header_class);?>" >
 						<div class="<?php echo esc_attr(primestudio_layout_settings()); ?>"><!-- container start-->
-								<?php do_action('primestudio_header_block_action'); ?>
+								<?php do_action('primestudio_child_header_block_action'); ?>
 						</div> <!-- container end -->
 					</header><!-- #masthead -->
 		<?php

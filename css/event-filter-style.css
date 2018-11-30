@@ -188,9 +188,76 @@ Tribe Events
 Meta Events
 /*-----------------------------------------------*/
 
+#widget-meta-events{
+  font-family: 'Poppins', sans-serif;
+}
+
+#meta-event-filter-container {
+    margin-bottom: 50px;
+    position: relative;
+}
+
+#meta-event-filter-container:before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  top: 50%;
+  left: 0;
+  display: block;
+  background: #00CE7C;
+}
+
+#meta-event-filter-container .meta-event-cat{
+  background: #323E48;
+  position: relative;
+  overflow: hidden;
+}
+
+#meta-event-filter-container .meta-event-cat .meta-event-cat-inner {
+  color: #FFF;
+  text-align: center;
+  padding: 5px;
+  display: block;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+#meta-event-filter-container .meta-event-cat.selected .meta-event-cat-inner,
+#meta-event-filter-container .meta-event-cat:hover .meta-event-cat-inner {
+  letter-spacing: 4px;
+  color: #323E48;
+  z-index: 1000;
+  position: relative;
+}
+
+#meta-event-filter-container .meta-event-cat:before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0;
+  top: 50%;
+  left: 0;
+  opacity: 0;
+  z-index: 2;
+  background: #00CE7C;
+  transition: all 0.3s ease-in-out;
+}
+
+#meta-event-filter-container .meta-event-cat.selected:before,
+#meta-event-filter-container .meta-event-cat:hover:before{
+  height: 100%;
+  top: 0;
+  opacity: 1;
+}
+
+#meta-events-container{
+  padding: 0;
+  margin: 0;
+}
 
 #meta-events-container .meta-event{
-  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
 }
 
 #meta-events-container .meta-event-inner {

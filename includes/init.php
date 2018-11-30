@@ -41,6 +41,9 @@ function enqueue_styles_scripts()
         get_stylesheet_directory_uri() .  '/js/custom.js', 
         [ 'jquery' ], '', true 
     );
+
+    //wp_dequeue_style( 'studio-salon' );
+    //wp_deregister_style( 'studio-salon' );
 }
 
 function wptuts_add_color_picker( $hook ) {
