@@ -4,6 +4,7 @@ function filter_tribe_events_handle( $atts, $content = null )
 {
   extract( shortcode_atts( array(
    'max_events'           =>  -1,
+   'show_count'           =>  0,
    'exclude_cat'          =>  ''
  ), $atts ) );
 

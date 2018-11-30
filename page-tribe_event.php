@@ -15,19 +15,13 @@
  * @package primestudio
  */
 
-get_header(); ?>
+get_header('tribe_events'); ?>
 	<div id="primary" class="content-area col-12">
 		<main id="main" class="site-main">
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
 			<?php get_template_part( 'template-parts/content', 'tribe_events' ); ?>
-			<div class="custome-nav"><?php 
-
-				previous_post_link('%link', 'Older', TRUE); 
-				next_post_link('%link', 'Newer', TRUE); ?>
-
-		  </div>
 			<?php
 				edit_post_link(
 					sprintf(

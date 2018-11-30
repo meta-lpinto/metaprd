@@ -40,6 +40,13 @@ body{
 Header
 /*-----------------------------------------------*/
 
+.loader-image .sk-cube-grid {
+	transition: all ease-in-out 0.4s;
+    width: 60px;
+    height: 60px;
+    margin: 40px auto;
+}
+
 #header{
 	max-width: 1170px;
 	margin: auto;
@@ -70,6 +77,8 @@ Header
 	position: relative;
 	background: #FFF;
 	z-index: 9999;
+	padding: 25px 0 !important;
+	box-shadow: none !important;
 }
 
 #masthead .site-branding {
@@ -189,6 +198,11 @@ Helpers
 	font-family: 'Poppins', sans-serif !important;
 }
 
+.container .entry-content a {
+	font-family: 'Poppins', sans-serif !important;
+    color:  #00CE7C;
+}
+
 /*-----------------------------------------------*
 Efects
 /*-----------------------------------------------*/
@@ -241,7 +255,8 @@ Efects
 }
 
 /* Buttons */
-#main .vc_general.vc_btn3 {
+#main .vc_general.vc_btn3,
+#tribe-events .tribe-events-button{
 	text-transform: uppercase;
     z-index: 1;
     overflow: hidden;
@@ -251,14 +266,15 @@ Efects
 	border-radius: 30px;
 	padding: 10px 30px;
 	font-family: 'Poppins', sans-serif !important;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: 400;
 	color: #323E48;
     border-color: #ECEFF1;
-
+    position: relative;
 }
 
-#main .vc_general.vc_btn3::before {
+#main .vc_general.vc_btn3::before,
+#tribe-events .tribe-events-button::before {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -279,16 +295,20 @@ Efects
 
 
 #main .vc_general.vc_btn3,
-#main .vc_general.vc_btn3::before {
+#main .vc_general.vc_btn3::before,
+#tribe-events .tribe-events-button,
+#tribe-events .tribe-events-button::before {
 	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 }
-#main .vc_general.vc_btn3:hover {
-	color: #fff;
+#main .vc_general.vc_btn3:hover,
+#tribe-events .tribe-events-button:hover{
+	color: #fff !important;
 	border-color: #37474f;
 }
 
-#main .vc_general.vc_btn3:hover::before {
+#main .vc_general.vc_btn3:hover::before,
+#tribe-events .tribe-events-button:hover::before {
 	opacity: 1;
 	-webkit-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
@@ -411,7 +431,7 @@ Events
 	margin-bottom: -3px;
 }
 
-.single-meta_event #content{
+#content{
 	background-position: left bottom;
 	background-repeat: no-repeat;
 }
@@ -491,18 +511,78 @@ Events
 }
 
 #tribe-events .tribe-events-back{
-	position: absolute;
-	top: -80px;
+	position: absolute !important;
+	top: -50px;
 	right: 0;
-	background: green;
-	color: #FFF;
-	padding: 30px 15px 10px;
 }
 
-#tribe-events .tribe-events-schedule {
+#tribe-event-header{
+	border-left: 4px solid #70D44B;
+	padding: 10px 20px;
+}
+
+#tribe-event-header h1{
+	font-family: 'Poppins', sans-serif;
+}
+
+#tribe-event-header .tribe-events-schedule {
     margin: 0;
 }
 
+#tribe-event-header .tribe-events-schedule h2 {
+	font-family: 'Poppins', sans-serif;
+	margin: 5px 0;
+}
+
+#tribe-events .tribe_events-inner{
+    padding-top: 6%;
+}
+
+#tribe_events-thumb {
+	position: relative;
+}
+
+#tribe_events-thumb:before{
+	content: "";
+	display: block;
+	position: absolute;
+	left: 13%;
+	top: 0;
+	transform: rotate( 45deg );
+	width: 300px;
+	height: 300px;
+	border-radius: 40px;
+	background: #D1D3D4;
+	opacity: .3;
+}
+
+#tribe_events-thumb .tribe-events-event-image{
+	position: relative;
+	transform: rotate( 45deg );
+	width: 300px;
+	height: 300px;
+	overflow: hidden;
+	border-radius: 40px;
+	margin: auto;
+}
+
+#tribe_events-thumb .tribe_events-thumb-holder{
+    min-width: 150%;
+    min-height: 150%;
+    width: auto;
+    height: auto;
+    transform: rotate(-45deg);
+    position: absolute;
+    left: -25%;
+    top: -25%;
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#tribe-events-content {
+    margin-bottom: 0;
+}
 /*-----------------------------------------------*
 Responsive <i class="fa fa-fw fa-chevron-up"></i>
 /*-----------------------------------------------*/
